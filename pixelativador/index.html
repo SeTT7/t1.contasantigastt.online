@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativar Pixel TikTok</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #0d0d0d;
+        color: white;
+    }
+    .container {
+        text-align: center;
+        background: #1a1a1a;
+        padding: 20px 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 20px rgba(0, 255, 255, 0.2);
+        width: 320px;
+    }
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
+    #pixelCode {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #555;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #2a2a2a;
+        color: #fff;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .add-to-cart {
+        background: linear-gradient(45deg, #ff0050, #00f2ea);
+        color: #fff;
+    }
+    .initiate-checkout {
+        background: linear-gradient(45deg, #00f2ea, #ff0050);
+        color: #fff;
+    }
+    .add-payment-info {
+        background: linear-gradient(45deg, #ff0050, #7c00ff);
+        color: #fff;
+    }
+    .complete-payment {
+        background: linear-gradient(45deg, #00f2ea, #7c00ff);
+        color: #fff;
+    }
+    .all-events {
+        background: linear-gradient(45deg, #ff0050, #00f2ea, #7c00ff);
+        color: #fff;
+    }
+    button:hover {
+        opacity: 0.9;
+    }
+</style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Ativar Pixel do TikTok</h2>
+        <input type="text" id="pixelCode" placeholder="Insira o código do Pixel">
+        <button onclick="iniciarPixel()">Ativar Pixel</button>
+        <button class="add-to-cart" onclick="dispararAddToCart()">Add to Cart</button>
+        <button class="initiate-checkout" onclick="dispararInitiateCheckout()">Initiate Checkout</button>
+        <button class="add-payment-info" onclick="dispararAddPaymentInfo()">Add Payment Info</button>
+        <button class="complete-payment" onclick="dispararCompletePayment()">Complete Payment</button>
+        <button class="all-events" onclick="enviarTodosEventosPadroes()">Enviar Todos Eventos Padrões</button>
+    </div>
+
+    <script>
+        function iniciarPixel() {
+            const pixelCode = document.getElementById('pixelCode').value;
+            if (pixelCode) {
+                !function (w, d, t) {
+                    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || [];
+                    ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"],
+                    ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } };
+                    for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+                    ttq.instance = function (t) {
+                        for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+                        return e
+                    }, ttq.load = function (e, n) {
+                        var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
+                        ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+                        n = document.createElement("script"), n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
+                        e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+                    };
+                    ttq.load(pixelCode);
+                    ttq.page();
+                }(window, document, 'ttq');
+                alert("Pixel ativado com sucesso!");
+            } else {
+                alert("Por favor, insira o código do Pixel.");
+            }
+        }
+
+        function dispararAddToCart() {
+            if (window.ttq) {
+                ttq.track('AddToCart');
+                alert("Evento 'Add to Cart' disparado!");
+            } else {
+                alert("Por favor, ative o Pixel primeiro.");
+            }
+        }
+
+        function dispararInitiateCheckout() {
+            if (window.ttq) {
+                ttq.track('InitiateCheckout');
+                alert("Evento 'Initiate Checkout' disparado!");
+            } else {
+                alert("Por favor, ative o Pixel primeiro.");
+            }
+        }
+
+        function dispararAddPaymentInfo() {
+            if (window.ttq) {
+                ttq.track('AddPaymentInfo');
+                alert("Evento 'Add Payment Info' disparado!");
+            } else {
+                alert("Por favor, ative o Pixel primeiro.");
+            }
+        }
+
+        function dispararCompletePayment() {
+            if (window.ttq) {
+                const valorAleatorio = (Math.random() * 100 + 1).toFixed(2);
+                ttq.track('CompletePayment', { quantity: 1, description: "activate", content_type: "product", content_name: "ActivatePixel", currency: "USD", value: valorAleatorio });
+                alert(`Evento 'Complete Payment' disparado com valor de R$${valorAleatorio}`);
+            } else {
+                alert("Por favor, ative o Pixel primeiro.");
+            }
+        }
+
+        function enviarTodosEventosPadroes() {
+            if (window.ttq) {
+                const events = [
+                    { name: 'AddToCart', params: {} },
+                    { name: 'InitiateCheckout', params: {} },
+                    { name: 'AddPaymentInfo', params: {} },
+                    { name: 'CompletePayment', params: { quantity: 1, description: "activate", content_type: "product", content_name: "ActivatePixel", currency: "USD", value: (Math.random() * 100 + 1).toFixed(2) }},
+                    { name: 'CompleteRegistration', params: {} },
+                    { name: 'Contact', params: {} },
+                    { name: 'CustomizeProduct', params: {} },
+                    { name: 'Download', params: {} },
+                    { name: 'FindLocation', params: {} },
+                    { name: 'PlaceAnOrder', params: { currency: 'USD', value: 75.00 } },
+                    { name: 'Schedule', params: {} },
+                    { name: 'Search', params: { query: 'exemplo de pesquisa' } },
+                    { name: 'SubmitForm', params: {} },
+                    { name: 'Subscribe', params: {} },
+                    { name: 'ViewContent', params: { currency: 'USD', value: 49.99 } }
+                ];
+
+                let index = 0;
+                alert("Aguarde 15 segundos! ");
+
+                const triggerNextEvent = () => {
+                    if (index < events.length) {
+                        const event = events[index];
+                        ttq.track(event.name, event.params);
+                        index++;
+                        setTimeout(triggerNextEvent, 1000);
+                    } else {
+                        alert("Todos os eventos padrão foram enviados com sucesso!");
+                    }
+                };
+
+                triggerNextEvent();
+            } else {
+                alert("Pixel não ativado. Por favor, ative o pixel antes de enviar os eventos.");
+            }
+        }
+    </script>
+
+</body>
+</html>
