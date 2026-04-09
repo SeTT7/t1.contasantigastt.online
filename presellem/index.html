@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="accéder au contenu">
+    <title>Conteudo Cha</title>
+
+    <link rel="preload" href="https://scripts.converteai.net/c7daae54-28f8-4e09-90be-5fed14986104/players/67d20d15b7ef8e55f55e284e/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/c7daae54-28f8-4e09-90be-5fed14986104/67d0ec6327e969e4dd7cee46/main.m3u8" as="fetch">
+
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .age-verification-container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+        }
+
+        .cha-image {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .verification-title {
+            color: #cc0000;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .verification-instruction {
+            color: #111111;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .primary-button,
+        #verification-cta-button {
+            background-color: #1a9e3f;
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .primary-button:hover,
+        #verification-cta-button:hover {
+            background-color: #157a32;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 158, 63, 0.35);
+        }
+
+        .cta-button-container {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px 20px 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="age-verification-container">
+
+        <!-- Logo redondo no topo -->
+        <img src="img/logo.png" alt="Logo" class="logo">
+
+        <!-- Imagem do chá acima do texto -->
+        <img src="img/cha.png" alt="Chá" class="cha-image">
+
+        <p class="verification-instruction">
+            FAÇA A AVALIAÇÃO DE 1 MINUTO E RECEBA A RECEITA PERSONALIZADA PARA SEU CORPO
+        </p>
+
+        <div class="cta-button-container">
+            <a href="#" id="verification-cta-button" class="primary-button">
+                PEGAR MINHA RECEITA
+            </a>
+        </div>
+
+    </main>
+
+    <script>
+        document.getElementById("verification-cta-button")
+            .addEventListener("click", async function(e) {
+                e.preventDefault();
+                const currentParams = window.location.search;
+                const response = await fetch(
+                    "https://br16testetiktok.endersonset11.workers.dev/",
+                    { method: "POST" }
+                );
+                if (response.redirected) {
+                    window.location.href = response.url + currentParams;
+                }
+            });
+    </script>
+
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+</body>
+</html>
