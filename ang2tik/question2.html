@@ -1,0 +1,239 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://ab.angeljourney.site">
+    <meta property="og:title" content="Angel Journey">
+    <meta property="og:description" content="Angel Journey">
+    <meta property="og:image" content="https://img.imageboss.me/atm/cdn/format:auto/u/umsGbYu2QNOfeAn5fEqSwCDI4VE3/l/rBhIAv7621085.png">
+    <title>Question 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
+
+<style>
+.subtitle{
+
+font-family: 'adobe-garamond-pro';
+
+}
+*{
+    font-family: "Inter"
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        a{
+    display: block;
+}
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50;
+            border-radius: 5px;
+            width: 60%; /* Progresso de 10% */
+        }
+
+        .progress-bar span {
+            position: absolute;
+            right: 10px;
+            top: -25px;
+            font-size: 12px;
+            color: #000;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a07e4d;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+        }
+
+        .input-field input {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+/* Rectangle 3 */
+.submit-btn {
+box-sizing: border-box !important;
+background: linear-gradient(180deg, #2BAC22 0%, #279A1F 100%) !important;
+border: 2px solid #37D12C !important;
+border-radius: 14px !important;
+}
+
+        .submit-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.6;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .submit-btn:enabled {
+            opacity: 1;
+        }
+        a{
+            text-decoration: none;
+        }
+        body {
+    background-image: url(images/fundo.png?utm_campaign=set);
+}
+
+/* Question 1 */
+.question{
+width: 103px;
+height: 14px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 30px;
+/* or 188% */
+align-items: center;
+text-align: center;
+width:100%;
+color: #272727;
+}
+
+/* What was the day of your birth? */
+
+.subtitle{
+width: 100%;
+height: auto;
+
+font-family: 'adobe-garamond-pro';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 34px;
+/* or 121% */
+text-align: center;
+
+color: #886C29;
+}
+
+input{
+    /* Group 119 */
+box-sizing: border-box !important;
+background: #9D998D !important;
+border: 1px solid #8C8675 !important;
+border-radius: 10px !important;
+
+
+}
+input::placeholder {
+    color: #DBDBDB !important;
+}
+
+.progress-bar{
+    background-color:#737373 !important;
+}
+.progress{
+    background-color:#1F7219 !important;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h3 style="transform:translateY(-70px);">Find Out Who Your Guardian Angel Is and Access Your Angel’s Miraculous Chant</h3>
+
+
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <h2 class="question">Question 2</h2>
+        <p class="subtitle">What is your birth date?</p>
+        <div class="input-field">
+            <input type="text" id="birth-date" placeholder="Day/Month/Year">
+        </div>
+<a href="loading.html" id="submit-btn" class="submit-btn" style="pointer-events: none;">SUBMIT MY ANSWER</a>
+<br>
+
+<script>
+    const inputField = document.getElementById('birth-date');
+    const submitBtn = document.getElementById('submit-btn');
+
+    inputField.addEventListener('input', function() {
+        // Habilita o botão apenas se houver algo digitado
+        if (inputField.value.trim() !== "") {
+            submitBtn.style.pointerEvents = 'auto';
+            submitBtn.style.opacity = '1';
+        } else {
+            submitBtn.style.pointerEvents = 'none';
+            submitBtn.style.opacity = '0.6';
+        }
+    });
+
+    // Preserve URL parameters and redirect
+    submitBtn.addEventListener('click', (e) => {
+        // Impede o link de seguir seu comportamento padrão
+        e.preventDefault();
+
+        // Captura os parâmetros da URL atual
+        const params = new URLSearchParams(window.location.search);
+        
+        // Adiciona os parâmetros ao link de destino (loading.html)
+        const newUrl = "loading.html?" + params.toString();
+
+        // Redireciona para a nova URL com os parâmetros
+        window.location.href = newUrl;
+    });
+</script>
+
+
+
+</body></html>
